@@ -1,3 +1,64 @@
+# ビルド方法 for 自分の環境（WSL2（Ubuntu20.04）でビルドしてwindowsで動かす）
+以下のコマンド群を実行
+```bash
+# for Debian/Ubuntu
+sudo apt install ffmpeg libsdl2-2.0-0 adb wget \
+                 gcc git pkg-config meson ninja-build libsdl2-dev \
+                 libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev
+```
+
+```bash
+# for Debian/Ubuntu
+sudo apt install cmake
+pip3 install meson
+sudo apt install mingw-w64 mingw-w64-tools
+sudo apt install openjdk-11-jdk
+```
+
+```bash
+# for Debian/Ubuntu
+sudo apt install android-sdk
+```
+
+以下を`~/.bashrc`に追加して再読み込み
+```
+export ANDROID_HOME=/usr/lib/android-sdk
+```
+
+さらに、SDK マネージャをインストールする：
+https://developer.android.com/studio#downloads
+からCommand line tools onlyをダウンロードして適当なディレクトリに入れて以下を実行
+
+```
+cd ダウンロード先ディレクトリ
+unzip ファイル名 -d cmdline-tools
+sudo mv cmdline-tools $ANDROID_HOME/
+sudo chmod -R a+w "$ANDROID_HOME"
+```
+
+以下を`~/.bashrc`に追加して再読み込み
+```
+export PATH="$ANDROID_HOME/cmdline-tools/cmdline-tools/bin/:$PATH"
+```
+
+試しにビルドしてみる
+```
+./release.sh
+```
+
+ライセンスエラーが出たら、
+```
+sdkmanager --licenses
+```
+を実行してひとつづつ許可する
+
+さらに、`platforms;android-30`をインストール
+```
+sdkmanager "platforms;android-30"
+```
+
+これでビルドできた。
+
 # Build scrcpy
 
 Here are the instructions to build _scrcpy_ (client and server).
