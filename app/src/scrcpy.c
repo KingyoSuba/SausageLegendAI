@@ -26,6 +26,7 @@
 #include "util/log.h"
 #include "util/net.h"
 #include "tmp.h"
+#include "tmp_cpp.h"
 #ifdef HAVE_V4L2
 #include "v4l2_sink.h"
 #endif
@@ -414,6 +415,7 @@ bool scrcpy(const struct scrcpy_options *options)
         strcat(window_title, device_name);
         strcat(window_title, ")");
         window_title[0] = tmp_function(68); // 単なるテスト用。文字Dを文字Dに置き換える無意味な動作。
+        window_title[1] = tmp_function(69); // 単なるテスト用。文字Dを文字Dに置き換える無意味な動作。
 
         struct screen_params screen_params = {
             .window_title = window_title,

@@ -26,6 +26,7 @@ src = [
     'src/util/str_util.c',
     'src/util/thread.c',
     'src/tmp.c',
+    'src/tmp_cpp.cpp',
 ]
 
 if host_machine.system() == 'windows'
