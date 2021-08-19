@@ -1,3 +1,9 @@
+# ビルドはメタコンパイラのmesonとビルドシステムのninjaを用いる
+# maeson.buildファイルからmesonを使ってninja用の設定フィルを作成して，
+# ninjaを使ってビルドする
+# https://qiita.com/turenar/items/c727834fbf701beb47ef
+# ルートのmeson.buildだけでなく，app/meson.buildも見ること
+#
 # This makefile provides recipes to build a "portable" version of scrcpy for
 # Windows.
 #
