@@ -5,5 +5,5 @@ extern "C"
 #endif
   int tmp_cpp_function(int x);
 #ifdef __cplusplus
-}
+};
 #endif

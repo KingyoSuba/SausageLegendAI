@@ -26,7 +26,7 @@
 #include "util/log.h"
 #include "util/net.h"
 #include "tmp.h"
-#include "tmp_cpp.h"
+#include "tmp_cpp.hpp"
 #ifdef HAVE_V4L2
 #include "v4l2_sink.h"
 #endif

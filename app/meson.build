@@ -26,8 +26,9 @@ src = [
     'src/util/str_util.c',
     'src/util/thread.c',
     'src/tmp.c',
-    'src/tmp_cpp.cpp',
 ]
+
+src_cpp = ['src/tmp_cpp.cpp',]
 
 if host_machine.system() == 'windows'
     src += [ 'src/sys/win/process.c' ]
@@ -45,6 +46,7 @@ check_functions = [
 ]
 
 cc = meson.get_compiler('c')
+ccpp = meson.get_compiler('cpp')
 
 if not get_option('crossbuild_windows')
 
@@ -142,7 +144,7 @@ configure_file(configuration: conf, output: 'config.h')
 
 src_dir = include_directories('src')
 
-executable('scrcpy', src,
+executable('scrcpy', src, src_cpp,
            dependencies: dependencies,
            include_directories: src_dir,
            install: true,

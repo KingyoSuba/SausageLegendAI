@@ -1,5 +1,5 @@
 
-#include "tmp_cpp.h"
+#include "tmp_cpp.hpp"
 #include <iostream> // header in standard library
 
 using namespace std;
