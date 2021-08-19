@@ -25,6 +25,7 @@
 #include "tiny_xpm.h"
 #include "util/log.h"
 #include "util/net.h"
+#include "tmp.h"
 #ifdef HAVE_V4L2
 #include "v4l2_sink.h"
 #endif
@@ -406,10 +407,13 @@ bool scrcpy(const struct scrcpy_options *options)
             controller_started = true;
         }
 
-        const char *window_title =
-            options->window_title ? options->window_title : device_name;
+        // const char *window_title =
+        //     options->window_title ? options->window_title : device_name;
 
-        window_title = "Deep Sausage Legend";
+        char window_title[100] = "Deep Sausage Legend (";
+        strcat(window_title, device_name);
+        strcat(window_title, ")");
+        window_title[0] = tmp_function(68); // 単なるテスト用。文字Dを文字Dに置き換える無意味な動作。
 
         struct screen_params screen_params = {
             .window_title = window_title,
